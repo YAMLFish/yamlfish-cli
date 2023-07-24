@@ -2,6 +2,7 @@
 
 require_relative "cli/version"
 require_relative "cli/push"
+require_relative "cli/pull"
 require "yaml"
 
 module I28s

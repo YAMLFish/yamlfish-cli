@@ -9,6 +9,12 @@ class I28sExe < Thor
   def push(locale)
     I28s::Cli::Push.new(locale).call
   end
+
+  desc "pull", "Pulls translations from i28s"
+  option :inplace, type: :boolean, default: false
+  def pull(locale)
+    I28s::Cli::Pull.new(locale, inplace: options[:inplace]).call
+  end
 end
 
 I28sExe.start(ARGV)
