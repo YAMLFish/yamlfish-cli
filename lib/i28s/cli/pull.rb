@@ -9,14 +9,15 @@ module I28s
     class Pull
       using Refinements::DotFlatten
 
-      def initialize(locale_identifier, inplace: false)
+      def initialize(locale_identifier, inplace: false, branch: "main")
         @locale_identifier = locale_identifier
         @inplace = inplace
+        @branch = branch
       end
 
       def call
         response = Faraday.get(
-          "#{I28s::Cli.configuration.base_url}/projects/#{I28s::Cli.configuration.project_token}/locales/#{@locale_identifier}/export",
+          "#{I28s::Cli.configuration.base_url}/projects/#{I28s::Cli.configuration.project_token}/#{@branch}/locales/#{@locale_identifier}/export",
           {},
           {
             "Authorization": "Bearer #{I28s::Cli.configuration.api_key}"
@@ -40,8 +41,6 @@ module I28s
 
           file.each do |key, value|
             if translations.has_key?(key) && translations[key] != value
-              require "debug"
-              debugger
               update = true
               file[key] = translations[key]
             end
