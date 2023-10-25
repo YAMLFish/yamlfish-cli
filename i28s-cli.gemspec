@@ -3,7 +3,7 @@
 require_relative "lib/i28s/cli/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "i28s-cli"
+  spec.name = "i28s"
   spec.version = I28s::Cli::VERSION
   spec.authors = ["Adrien Siami"]
   spec.email = ["adrien@siami.fr"]
@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
+  # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
   # spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
