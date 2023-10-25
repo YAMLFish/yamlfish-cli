@@ -13,9 +13,10 @@ class I28sExe < Thor
 
   desc "pull", "Pulls translations from i28s"
   option :inplace, type: :boolean, default: false
+  option :force_update, type: :boolean, default: false
   option :branch, type: :string, default: "main"
   def pull(locale)
-    I28s::Cli::Pull.new(locale, inplace: options[:inplace], branch: options[:branch]).call
+    I28s::Cli::Pull.new(locale, inplace: options[:inplace], force_update: options[:force_update], branch: options[:branch]).call
   end
 end
 

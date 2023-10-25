@@ -3,15 +3,17 @@
 require "faraday"
 require "json"
 require_relative "../../refinements/dot_flatten"
+require_relative "yaml_dumper"
 
 module I28s
   module Cli
     class Pull
       using Refinements::DotFlatten
 
-      def initialize(locale_identifier, inplace: false, branch: "main")
+      def initialize(locale_identifier, inplace: false, force_update: false, branch: "main")
         @locale_identifier = locale_identifier
         @inplace = inplace
+        @force_update = force_update
         @branch = branch
       end
 
@@ -46,12 +48,12 @@ module I28s
             end
           end
 
-          File.write(filename, YAML.dump(file.dot_unflatten)) if update
+          File.write(filename, I28s::Cli::YamlDumper.dump(file.dot_unflatten)) if update || @force_update
         end
       end
 
       def dump_translations(translations)
-        File.write("./config/locales/#{@locale_identifier}.yml", YAML.dump(translations.dot_unflatten))
+        File.write("./config/locales/#{@locale_identifier}.yml", I28s::Cli::YamlDumper.dump(translations.dot_unflatten))
       end
     end
   end
