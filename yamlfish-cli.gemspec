@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require_relative "lib/i28s/cli/version"
+require_relative "lib/yamlfish/cli/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "i28s"
-  spec.version = I28s::Cli::VERSION
+  spec.name = "yamlfish"
+  spec.version = Yamlfish::Cli::VERSION
   spec.authors = ["Adrien Siami"]
   spec.email = ["adrien@siami.fr"]
 
-  spec.summary = "i28s"
+  spec.summary = "Easily manage your translations with yamlfish"
   # spec.description = "TODO: Write a longer description or delete this line."
-  spec.homepage = "https://i28s.dev"
+  spec.homepage = "https://yamlfish.dev"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 

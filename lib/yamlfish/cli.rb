@@ -5,7 +5,7 @@ require_relative "cli/push"
 require_relative "cli/pull"
 require "yaml"
 
-module I28s
+module Yamlfish
   module Cli
     class Error < StandardError; end
     # Your code goes here...
@@ -17,11 +17,11 @@ module I28s
     class Configuration
       attr_accessor :api_key, :project_token, :base_url
 
-      DEFAULT_BASE_URL = "https://i28s.dev/api/v1"
+      DEFAULT_BASE_URL = "https://yamlfish.dev/api/v1"
 
       def initialize
         configuration = begin
-          YAML.load_file(File.expand_path(".i28s.yml"))
+          YAML.load_file(File.expand_path(".yamlfish.yml"))
         rescue Errno::ENOENT
           {}
         end

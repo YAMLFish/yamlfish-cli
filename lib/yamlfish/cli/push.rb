@@ -3,7 +3,7 @@
 require "active_support/core_ext/hash/deep_merge"
 require "faraday"
 
-module I28s
+module Yamlfish
   module Cli
     class Push
       def initialize(locale_identifier, branch: "main")
@@ -21,10 +21,10 @@ module I28s
         raise "No translations" unless translations&.any?
 
         response = Faraday.post(
-          "#{I28s::Cli.configuration.base_url}/projects/#{I28s::Cli.configuration.project_token}/#{@branch}/locales/#{@locale_identifier}/import",
+          "#{Yamlfish::Cli.configuration.base_url}/projects/#{Yamlfish::Cli.configuration.project_token}/#{@branch}/locales/#{@locale_identifier}/import",
           { data: JSON.dump(translations) },
           {
-            "Authorization": "Bearer #{I28s::Cli.configuration.api_key}"
+            "Authorization": "Bearer #{Yamlfish::Cli.configuration.api_key}"
           }
         )
         puts response.status

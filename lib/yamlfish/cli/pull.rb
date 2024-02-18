@@ -5,7 +5,7 @@ require "json"
 require_relative "../../refinements/dot_flatten"
 require_relative "yaml_dumper"
 
-module I28s
+module Yamlfish
   module Cli
     class Pull
       using Refinements::DotFlatten
@@ -19,10 +19,10 @@ module I28s
 
       def call
         response = Faraday.get(
-          "#{I28s::Cli.configuration.base_url}/projects/#{I28s::Cli.configuration.project_token}/#{@branch}/locales/#{@locale_identifier}/export",
+          "#{Yamlfish::Cli.configuration.base_url}/projects/#{Yamlfish::Cli.configuration.project_token}/#{@branch}/locales/#{@locale_identifier}/export",
           {},
           {
-            "Authorization": "Bearer #{I28s::Cli.configuration.api_key}"
+            "Authorization": "Bearer #{Yamlfish::Cli.configuration.api_key}"
           }
         )
         translations = JSON.parse(response.body)
@@ -48,12 +48,12 @@ module I28s
             end
           end
 
-          File.write(filename, I28s::Cli::YamlDumper.dump(file.dot_unflatten)) if update || @force_update
+          File.write(filename, Yamlfish::Cli::YamlDumper.dump(file.dot_unflatten)) if update || @force_update
         end
       end
 
       def dump_translations(translations)
-        File.write("./config/locales/#{@locale_identifier}.yml", I28s::Cli::YamlDumper.dump(translations.dot_unflatten))
+        File.write("./config/locales/#{@locale_identifier}.yml", Yamlfish::Cli::YamlDumper.dump(translations.dot_unflatten))
       end
     end
   end

@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "thor"
+require_relative "../lib/yamlfish/cli"
+
+class YamlfishExe < Thor
+  desc "push", "Pushes translations to yamlfish"
+  option :branch, type: :string, default: "main"
+  def push(locale)
+    Yamlfish::Cli::Push.new(locale, branch: options[:branch]).call
+  end
+
+  desc "pull", "Pulls translations from yamlfish"
+  option :inplace, type: :boolean, default: false
+  option :force_update, type: :boolean, default: false
+  option :branch, type: :string, default: "main"
+  def pull(locale)
+    Yamlfish::Cli::Pull.new(locale, inplace: options[:inplace], force_update: options[:force_update], branch: options[:branch]).call
+  end
+end
+
+YamlfishExe.start(ARGV)

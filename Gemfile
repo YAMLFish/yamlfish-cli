@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in i28s-cli.gemspec
+# Specify your gem's dependencies in yamlfish-cli.gemspec
 gemspec
 
 gem "rake", "~> 13.0"

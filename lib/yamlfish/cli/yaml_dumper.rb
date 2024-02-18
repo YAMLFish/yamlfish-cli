@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module I28s
+module Yamlfish
   module Cli
     class YamlDumper
       # We want to dump strings that contain newlines as literal scalars for readability

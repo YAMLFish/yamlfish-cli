@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "i28s/cli"
+require "yamlfish/cli"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
