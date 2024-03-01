@@ -4,6 +4,7 @@ require_relative "cli/version"
 require_relative "cli/push"
 require_relative "cli/pull"
 require "yaml"
+require "rainbow"
 
 module Yamlfish
   module Cli

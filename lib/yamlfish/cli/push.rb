@@ -27,7 +27,11 @@ module Yamlfish
             "Authorization": "Bearer #{Yamlfish::Cli.configuration.api_key}"
           }
         )
-        puts response.status
+        if response.status == 201
+          puts "Successfully pushed translations for locale #{Rainbow(@locale_identifier).magenta.bright} on branch #{Rainbow(@branch).magenta.bright}"
+        else
+          puts Rainbow("Failed to push, unexpected HTTP status #{response.status}").red.bright
+        end
       end
     end
   end

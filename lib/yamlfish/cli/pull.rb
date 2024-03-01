@@ -25,12 +25,20 @@ module Yamlfish
             "Authorization": "Bearer #{Yamlfish::Cli.configuration.api_key}"
           }
         )
+
+        if response.status != 200
+          puts Rainbow("Failed to pull, unexpected HTTP status #{response.status}").red.bright
+          return
+        end
+
         translations = JSON.parse(response.body)
 
         if @inplace
           replace_inplace(translations)
+          puts "Fetched translations in-place for locale #{Rainbow(@locale_identifier).magenta.bright}"
         else
           dump_translations(translations)
+          puts "Downloaded new translations for locale #{Rainbow(@locale_identifier).magenta.bright}"
         end
       end
 

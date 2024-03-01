@@ -34,6 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "thor", "~> 1.2"
   spec.add_dependency "activesupport", ">= 6"
   spec.add_dependency "faraday", "~> 2.0"
+  spec.add_dependency "rainbow", "~> 3.1"
 
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html
