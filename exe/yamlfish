@@ -18,6 +18,11 @@ class YamlfishExe < Thor
   def pull(locale)
     Yamlfish::Cli::Pull.new(locale, inplace: options[:inplace], force_update: options[:force_update], branch: options[:branch]).call
   end
+
+  desc "version", "Prints the version"
+  def version
+    puts Yamlfish::Cli::VERSION
+  end
 end
 
 YamlfishExe.start(ARGV)
