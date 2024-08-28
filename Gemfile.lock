@@ -61,9 +61,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-23
-  x86_64-darwin-21
-  x86_64-darwin-22
-  x86_64-linux
+  ruby
 
 DEPENDENCIES
   rake (~> 13.0)
@@ -71,4 +69,4 @@ DEPENDENCIES
   yamlfish!
 
 BUNDLED WITH
-   2.2.32
+   2.5.18
