@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yamlfish (0.1.0.rc1)
+    yamlfish (0.1.0.alpha2)
       activesupport (>= 6)
       faraday (~> 2.0)
       rainbow (~> 3.1)
