@@ -45,7 +45,7 @@ module Yamlfish
       private
 
       def replace_inplace(translations)
-        Dir.glob("./config/locales/**/*.yml").each do |filename|
+        Dir.glob("./#{Yamlfish::Cli.configuration.locales_path}/**/*.yml").each do |filename|
           file = YAML.load_file(filename).dot_flatten
           update = false
 
@@ -61,7 +61,7 @@ module Yamlfish
       end
 
       def dump_translations(translations)
-        File.write("./config/locales/#{@locale_identifier}.yml", Yamlfish::Cli::YamlDumper.dump(translations.dot_unflatten))
+        File.write("./#{Yamlfish::Cli.configuration.locales_path}/#{@locale_identifier}.yml", Yamlfish::Cli::YamlDumper.dump(translations.dot_unflatten))
       end
     end
   end

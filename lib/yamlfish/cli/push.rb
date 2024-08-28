@@ -12,7 +12,7 @@ module Yamlfish
       end
 
       def call
-        translations = Dir.glob("./config/locales/**/*.yml").each_with_object({}) do |filename, translations|
+        translations = Dir.glob("./#{Yamlfish::Cli.configuration.locales_path}/**/*.yml").each_with_object({}) do |filename, translations|
           translations.deep_merge!(YAML.load_file(filename))
         end
 

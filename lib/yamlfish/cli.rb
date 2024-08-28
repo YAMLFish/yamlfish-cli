@@ -16,9 +16,10 @@ module Yamlfish
     end
 
     class Configuration
-      attr_accessor :api_key, :project_token, :base_url
+      attr_accessor :api_key, :project_token, :base_url, :locales_path
 
       DEFAULT_BASE_URL = "https://yamlfish.dev/api/v1"
+      DEFAULT_LOCALES_PATH = "config/locales"
 
       def initialize
         configuration = begin
@@ -30,6 +31,7 @@ module Yamlfish
         @api_key = configuration["api_key"]
         @project_token = configuration["project_token"]
         @base_url = configuration["base_url"] || DEFAULT_BASE_URL
+        @locales_path = configuration["locales_path"] || DEFAULT_LOCALES_PATH
       end
     end
   end
