@@ -9,6 +9,9 @@ class YamlfishExe < Thor
   option :branch, type: :string, default: "main"
   def push(locale)
     Yamlfish::Cli::Push.new(locale, branch: options[:branch]).call
+  rescue Errno::ENOENT => e
+    puts Rainbow("Could not push: #{e.message}").red.bright
+    exit 1
   end
 
   desc "pull", "Pulls translations from yamlfish"
@@ -17,6 +20,9 @@ class YamlfishExe < Thor
   option :branch, type: :string, default: "main"
   def pull(locale)
     Yamlfish::Cli::Pull.new(locale, inplace: options[:inplace], force_update: options[:force_update], branch: options[:branch]).call
+  rescue Errno::ENOENT => e
+    puts Rainbow("Could not pull: #{e.message}").red.bright
+    exit 1
   end
 
   desc "version", "Prints the version"

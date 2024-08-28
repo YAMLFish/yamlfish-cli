@@ -31,6 +31,7 @@ module Yamlfish
           puts "Successfully pushed translations for locale #{Rainbow(@locale_identifier).magenta.bright} on branch #{Rainbow(@branch).magenta.bright}"
         else
           puts Rainbow("Failed to push, unexpected HTTP status #{response.status}").red.bright
+          exit 1
         end
       end
     end

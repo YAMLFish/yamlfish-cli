@@ -28,7 +28,7 @@ module Yamlfish
 
         if response.status != 200
           puts Rainbow("Failed to pull, unexpected HTTP status #{response.status}").red.bright
-          return
+          exit 1
         end
 
         translations = JSON.parse(response.body)
