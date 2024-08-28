@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yamlfish (0.1.0.alpha2)
+    yamlfish (0.1.0.rc1)
       activesupport (>= 6)
       faraday (~> 2.0)
       rainbow (~> 3.1)
@@ -63,6 +63,7 @@ PLATFORMS
   arm64-darwin-23
   x86_64-darwin-21
   x86_64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   rake (~> 13.0)
