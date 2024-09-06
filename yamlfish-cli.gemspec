@@ -11,6 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = "Easily manage your translations with yamlfish"
   # spec.description = "TODO: Write a longer description or delete this line."
   spec.homepage = "https://yamlfish.dev"
+  spec.metadata["source_code_uri"] = "https://github.com/yamlfish/yamlfish-cli"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
