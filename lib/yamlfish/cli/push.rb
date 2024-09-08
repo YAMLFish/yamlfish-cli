@@ -6,9 +6,10 @@ require "faraday"
 module Yamlfish
   module Cli
     class Push
-      def initialize(locale_identifier, branch: "main")
+      def initialize(locale_identifier, branch: "main", keep_unmentioned_keys: false)
         @locale_identifier = locale_identifier
         @branch = branch
+        @keep_unmentioned_keys = keep_unmentioned_keys
       end
 
       def call
@@ -22,7 +23,10 @@ module Yamlfish
 
         response = Faraday.post(
           "#{Yamlfish::Cli.configuration.base_url}/projects/#{Yamlfish::Cli.configuration.project_token}/#{@branch}/locales/#{@locale_identifier}/import",
-          { data: JSON.dump(translations) },
+          {
+            keep_unmentioned_keys: @keep_unmentioned_keys,
+            data: JSON.dump(translations)
+          },
           {
             "Authorization": "Bearer #{Yamlfish::Cli.configuration.api_key}"
           }
