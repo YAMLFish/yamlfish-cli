@@ -8,18 +8,17 @@ Gem::Specification.new do |spec|
   spec.authors = ["Adrien Siami"]
   spec.email = ["adrien@siami.fr"]
 
-  spec.summary = "Easily manage your translations with yamlfish"
-  # spec.description = "TODO: Write a longer description or delete this line."
+  spec.summary = "CLI for YAMLFish, the simple and powerful translation management platform"
+  spec.description = "YAMLFish helps developers and product managers with i18n and translation management simply and efficiently."
   spec.homepage = "https://yamlfish.dev"
-  spec.metadata["source_code_uri"] = "https://github.com/yamlfish/yamlfish-cli"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  # spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  # spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata["source_code_uri"] = "https://github.com/yamlfish/yamlfish-cli"
+  spec.metadata["changelog_uri"] = "https://github.com/YAMLFish/yamlfish-cli/blob/master/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
