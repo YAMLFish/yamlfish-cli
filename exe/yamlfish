@@ -7,7 +7,7 @@ require_relative "../lib/yamlfish/cli"
 class YamlfishExe < Thor
   desc "push", "Pushes translations to yamlfish"
   option :branch, type: :string, default: "main"
-  option :keep_unmentioned_keys, type: :boolean, default: false
+  option :keep_unmentioned_keys, type: :boolean, default: false, aliases: "-k"
   def push(locale)
     Yamlfish::Cli::Push.new(locale, branch: options[:branch], keep_unmentioned_keys: options[:keep_unmentioned_keys]).call
   rescue Errno::ENOENT => e
