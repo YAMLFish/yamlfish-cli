@@ -1,6 +1,6 @@
 # YAMLFish CLI
 
-This is the command line interface for [YAMLFish](https:s://yamlfish.dev), the simple and powerful translation management platform.
+This is the command line interface for [YAMLFish](https:://yamlfish.dev), the simple and powerful translation management platform.
 
 ## Installation
 
