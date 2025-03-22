@@ -13,7 +13,10 @@ module Yamlfish
           node.style  = Psych::Nodes::Scalar::LITERAL if node.value.include?("\n")
         end
 
-        ast.yaml(nil, {line_width: -1})
+        ast.yaml(nil, {line_width: -1}).then do |yaml|
+          # Restore emojis
+          yaml.gsub(/\\u[\da-f]{8}/i) { |m| [m[-8..].to_i(16)].pack("U") }
+        end
       end
     end
   end
